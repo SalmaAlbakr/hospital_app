@@ -133,7 +133,7 @@ class CallsWidget extends StatelessWidget {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        Colors.green,
+                        AppColor.lightGreenColor,
                       ),
                     ),
                     onPressed: () {},
@@ -152,7 +152,7 @@ class CallsWidget extends StatelessWidget {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        Colors.orangeAccent,
+                        AppColor.lightOrangeColor,
                       ),
                     ),
                     onPressed: () {},

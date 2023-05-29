@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
@@ -39,14 +40,14 @@ class SpecialistScreen extends StatelessWidget {
                         logo: AppImages.callsLogo,
                         text: "Calls",
                         hintText: "You have new +1 Request",
-                        color: Colors.blue,
+                        color: AppColor.blueColor,
                       ),
                       SpecialistScreenButton(
                         heightPersint: 0.2,
                         logo: AppImages.reportsLogo,
                         text: "Reports",
                         hintText: "You have new +3 Request",
-                        color: Colors.deepPurpleAccent,
+                        color: AppColor.purpleColor,
                       ),
                     ],
                   ),
@@ -56,7 +57,7 @@ class SpecialistScreen extends StatelessWidget {
                         logo: AppImages.tasksLogo,
                         text: "Tasks",
                         hintText: "You have new +1 Task",
-                        color: Colors.green,
+                        color: AppColor.deepGreenColor,
                         heightPersint: 0.2,
                       ),
                       SpecialistScreenButton(
@@ -64,7 +65,7 @@ class SpecialistScreen extends StatelessWidget {
                         logo: AppImages.fingerprintLogo,
                         text: "",
                         hintText: "attendance-leaving",
-                        color: Colors.cyan,
+                        color: AppColor.cyanColor,
                       ),
                     ],
                   ),
@@ -74,9 +75,9 @@ class SpecialistScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.orange[900],
+                      color:  AppColor.deepOrangeColor,
                       borderRadius: BorderRadius.circular(12), border: Border.all(
-                      color: Colors.deepOrange,
+                      color: AppColor.deepOrangeColor,
                     ),),
 
                     width: MediaQuery.of(context).size.width,
