@@ -73,7 +73,12 @@ class SpecialistScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                    color: Colors.orange[900],
+                    decoration: BoxDecoration(
+                      color: Colors.orange[900],
+                      borderRadius: BorderRadius.circular(12), border: Border.all(
+                      color: Colors.deepOrange,
+                    ),),
+
                     width: MediaQuery.of(context).size.width,
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),

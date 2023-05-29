@@ -7,5 +7,7 @@ class AppImages{
  static String fingerprintLogo = "assets/image/Group 345.png";
  static String reportsLogo = "assets/image/Group 347.png";
  static String casesLogo = "assets/image/Group 4588.png";
+ static String DateLogo = "assets/image/Group 2877.png";
+ static String personLogo = "assets/image/Group 2878.png";
 
 }
