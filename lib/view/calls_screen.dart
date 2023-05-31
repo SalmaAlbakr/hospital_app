@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class CallsScreen extends StatelessWidget {
-  const CallsScreen({Key? key}) : super(key: key);
-
+  CallsScreen({required this.role, Key? key}) : super(key: key);
+  String role;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,11 +16,51 @@ class CallsScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black87),
         ),
       ),
-      body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, int i) {
-            return CallsWidget();
-          }),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            role == "Receptionist"
+                ? Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            suffixIcon: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.grey[700]),),
+                              onPressed: () {},
+                              child: Icon(Icons.calendar_month_outlined),
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5),),),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Icon(Icons.add),
+                      ),
+                    ],
+                  )
+                : SizedBox(),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, int i) {
+                    return CallsWidget(
+                      role: role,
+                    );
+                  }),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

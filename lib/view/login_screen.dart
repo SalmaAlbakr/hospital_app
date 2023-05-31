@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
+import 'package:hospital_app/view/specialist_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key, required this.role}) : super(key: key);
+  String role;
 
  final TextEditingController phoneController = TextEditingController();
  final TextEditingController passwordController = TextEditingController();
@@ -99,7 +101,9 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SpecialistScreen(role :role),),);
+                      },
                       child: Text("Login"),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(AppColor.mainColor),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/view/calls_screen.dart';
+import 'package:hospital_app/view/case_details.dart';
 import 'package:hospital_app/view/loading_screen.dart';
 import 'package:hospital_app/view/login_screen.dart';
 import 'package:hospital_app/view/specialist_screen.dart';
@@ -12,13 +14,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-      home: SpecialistScreen(),
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppColor.mainColor),
+          ),
+        ),
+      ),
+      home: StartUpScreen(),
     );
   }
 }
-

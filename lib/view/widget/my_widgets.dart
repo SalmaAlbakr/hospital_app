@@ -11,7 +11,7 @@ Padding StartChoose({required String? Role, required BuildContext context}) {
       onTap: () async {
         await startApp(context);
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+            .push(MaterialPageRoute(builder: (context) => LoginScreen(role : Role),),);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -35,6 +35,7 @@ class SpecialistScreenButton extends StatelessWidget {
     required this.hintText,
     required this.color,
     required this.heightPersint,
+    required this.onTap ,
     Key? key,
   }) : super(key: key);
   String logo;
@@ -42,35 +43,39 @@ class SpecialistScreenButton extends StatelessWidget {
   String hintText;
   Color color;
   double heightPersint;
-  // double widthPersint;
+  void Function()? onTap;
+  
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: color),
-        ),
-        height: MediaQuery.of(context).size.height * heightPersint,
-        width: MediaQuery.of(context).size.width * 0.43,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(logo),
-              Text(
-                text,
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                hintText,
-                style: TextStyle(color: Colors.white, fontSize: 10),
-              ),
-            ],
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: color),
+          ),
+          height: MediaQuery.of(context).size.height * heightPersint,
+          width: MediaQuery.of(context).size.width * 0.43,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(logo),
+                Text(
+                  text,
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  hintText,
+                  style: TextStyle(color: Colors.white, fontSize: 10),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -79,10 +84,12 @@ class SpecialistScreenButton extends StatelessWidget {
 }
 
 class CallsWidget extends StatelessWidget {
-  const CallsWidget({
+   CallsWidget({
+     required this.role,
     Key? key,
   }) : super(key: key);
-
+  bool caseDone = false;
+  String role;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -106,11 +113,30 @@ class CallsWidget extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    "Call name",
-                  )
+                    "Patient Name",
+                  ),
+                  Expanded(child: SizedBox()),
+                 role == "Receptionist" ?
+                  caseDone ?  Icon(Icons.check_circle , color: AppColor.lightGreenColor,) :
+                      Image.asset(AppImages.progressLogo) : SizedBox()
+
                 ],
               ),
             ),
+        role == "Nurse" ?   Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:  Row(
+                children: [
+                  Image.asset(AppImages.doctorLogo),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Dr. Salma Ali",
+                  )
+                ],
+              )
+            ) : SizedBox(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -125,7 +151,7 @@ class CallsWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
+           role == "Receptionist" ? SizedBox() : Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
@@ -171,4 +197,19 @@ class CallsWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+Padding Details({required String MainText,required String Details}) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(MainText, style: TextStyle(
+            color: Colors.grey
+        ),),
+        Text(Details),
+      ],
+    ),
+  );
 }
