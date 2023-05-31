@@ -4,7 +4,9 @@ import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class CaseDetailsScreen extends StatelessWidget {
-  const CaseDetailsScreen({Key? key}) : super(key: key);
+   CaseDetailsScreen({Key? key , required this.role}) : super(key: key);
+
+  String role;
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +24,25 @@ class CaseDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Text("Case"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text("Case"),
+                    ),
                   ),
                 ),
-                Container(
+               role == "Nurse" ? SizedBox(width: 0,) : Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5),
@@ -47,17 +52,21 @@ class CaseDetailsScreen extends StatelessWidget {
                     child: Text("medical Record"),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Text("Medical measurement"),
+             role ==  "Analysis Employee" ? SizedBox(width: 0,) : Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text("Medical measurement"),
+                    ),
                   ),
                 ),
-                Container(
+                Expanded(child: SizedBox() ) ,
+                role == "Nurse" ? Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5),
@@ -66,10 +75,22 @@ class CaseDetailsScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(5.0),
                     child: Image.asset(AppImages.indLogo),
                   ),
-                ),
+                ) :
+                role ==  "Analysis Employee" ?Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Image.asset(AppImages.medicalLogo),
+                  ),
+                ) : SizedBox(width: 0,)
               ],
             ),
-            Container(),
+            SizedBox(
+              height: 5,
+            ),
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +120,7 @@ class CaseDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
+          role == "Doctor" ?  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
@@ -127,8 +148,9 @@ class CaseDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            Container(
+            ) : SizedBox(),
+            Expanded(child: SizedBox()),
+            role == "Doctor" ? Container(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 style: ButtonStyle(
@@ -137,7 +159,14 @@ class CaseDetailsScreen extends StatelessWidget {
                 onPressed: () {},
                 child: Text("End Case"),
               ),
-            ),
+            ) :
+            role == "Nurse" ? Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Call Doctor"),
+              ),
+            ) : SizedBox()
           ],
         ),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/calls_screen.dart';
+import 'package:hospital_app/view/case_details.dart';
+import 'package:hospital_app/view/cases_screen.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class SpecialistScreen extends StatelessWidget {
@@ -59,7 +61,9 @@ class SpecialistScreen extends StatelessWidget {
                         color: AppColor.blueColor,
                       ) :
                         SpecialistScreenButton(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
+                          },
                           heightPersint: 0.3,
                           logo: AppImages.casesLogo,
                           text: "Cases",
@@ -103,26 +107,31 @@ class SpecialistScreen extends StatelessWidget {
             role == "Doctor" || role == "Nurse"   ?
             Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColor.deepOrangeColor,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
                       color: AppColor.deepOrangeColor,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: AppColor.deepOrangeColor,
+                      ),
                     ),
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Cases",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Image.asset(AppImages.casesLogo),
-                      ],
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Cases",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Image.asset(AppImages.casesLogo),
+                        ],
+                      ),
                     ),
                   ),
                 ),

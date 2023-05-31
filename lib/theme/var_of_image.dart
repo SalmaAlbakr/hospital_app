@@ -13,5 +13,6 @@ class AppImages{
  static String doctorLogo = "assets/image/Group 4698.png";
  static String employeeLogo = "assets/image/Group 349.png";
  static String progressLogo = "assets/image/progrees.png";
+ static String medicalLogo = "assets/image/fi-rr-treatment.png";
 
 }
