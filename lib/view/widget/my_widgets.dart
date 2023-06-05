@@ -10,8 +10,11 @@ Padding StartChoose({required String? Role, required BuildContext context}) {
     child: GestureDetector(
       onTap: () async {
         await startApp(context);
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => LoginScreen(role : Role),),);
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(role: Role),
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(
@@ -35,16 +38,15 @@ class SpecialistScreenButton extends StatelessWidget {
     required this.hintText,
     required this.color,
     required this.heightPersint,
-    required this.onTap ,
+    required this.onTap,
     Key? key,
   }) : super(key: key);
-  String logo;
-  String text;
-  String hintText;
-  Color color;
-  double heightPersint;
-  void Function()? onTap;
-  
+  final String logo;
+  final String text;
+  final String hintText;
+  final Color color;
+  final double heightPersint;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -84,12 +86,12 @@ class SpecialistScreenButton extends StatelessWidget {
 }
 
 class CallsWidget extends StatelessWidget {
-   CallsWidget({
-     required this.role,
+  CallsWidget({
+    required this.role,
     Key? key,
   }) : super(key: key);
-  bool caseDone = false;
-  String role;
+  final bool caseDone = false;
+  final String role;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -116,27 +118,32 @@ class CallsWidget extends StatelessWidget {
                     "Patient Name",
                   ),
                   Expanded(child: SizedBox()),
-                 role == "Receptionist" ?
-                  caseDone ?  Icon(Icons.check_circle , color: AppColor.lightGreenColor,) :
-                      Image.asset(AppImages.progressLogo) : SizedBox()
-
+                  role == "Receptionist"
+                      ? caseDone
+                          ? Icon(
+                              Icons.check_circle,
+                              color: AppColor.lightGreenColor,
+                            )
+                          : Image.asset(AppImages.progressLogo)
+                      : SizedBox()
                 ],
               ),
             ),
-        role == "Nurse" ?   Padding(
-              padding: const EdgeInsets.all(8.0),
-              child:  Row(
-                children: [
-                  Image.asset(AppImages.doctorLogo),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Dr. Salma Ali",
-                  )
-                ],
-              )
-            ) : SizedBox(),
+            role == "Nurse"
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Image.asset(AppImages.doctorLogo),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Dr. Salma Ali",
+                        )
+                      ],
+                    ))
+                : SizedBox(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -151,47 +158,49 @@ class CallsWidget extends StatelessWidget {
                 ],
               ),
             ),
-           role == "Receptionist" ? SizedBox() : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        AppColor.lightGreenColor,
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.check_circle_outline_rounded,
+            role == "Receptionist"
+                ? SizedBox()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              AppColor.lightGreenColor,
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.check_circle_outline_rounded,
+                              ),
+                              Text("Accept")
+                            ],
+                          ),
                         ),
-                        Text("Accept")
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        AppColor.lightOrangeColor,
                       ),
-                    ),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(Icons.cancel_outlined),
-                        Text("Busy"),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            )
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              AppColor.lightOrangeColor,
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.cancel_outlined),
+                              Text("Busy"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
           ],
         ),
       ),
@@ -199,17 +208,66 @@ class CallsWidget extends StatelessWidget {
   }
 }
 
-Padding Details({required String MainText,required String Details}) {
+Padding Details({required String MainText, required String Details}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(MainText, style: TextStyle(
-            color: Colors.grey
-        ),),
+        Text(
+          MainText,
+          style: TextStyle(color: Colors.grey),
+        ),
         Text(Details),
       ],
     ),
   );
+}
+
+class LastSpecialistButton extends StatelessWidget {
+  LastSpecialistButton({
+    required this.onTap,
+    required this.logo,
+    required this.hintText,
+    Key? key,
+    required this.role,
+  }) : super(key: key);
+
+  final String role;
+  final String logo;
+  final String hintText;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColor.deepOrangeColor,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: AppColor.deepOrangeColor,
+            ),
+          ),
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  hintText,
+                  style: TextStyle(color: Colors.white),
+                ),
+                Image.asset(logo),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

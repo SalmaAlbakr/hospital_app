@@ -5,7 +5,7 @@ import 'package:hospital_app/view/specialist_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key, required this.role}) : super(key: key);
-  String role;
+  final String role;
 
  final TextEditingController phoneController = TextEditingController();
  final TextEditingController passwordController = TextEditingController();

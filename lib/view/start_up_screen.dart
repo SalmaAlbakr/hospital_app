@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
-import 'package:hospital_app/view/login_screen.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class StartUpScreen extends StatefulWidget {

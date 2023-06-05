@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/calls_screen.dart';
-import 'package:hospital_app/view/case_details.dart';
 import 'package:hospital_app/view/cases_screen.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class SpecialistScreen extends StatelessWidget {
   SpecialistScreen({Key? key, required this.role}) : super(key: key);
-  String role;
+ final String role;
 
   @override
   Widget build(BuildContext context) {
@@ -96,8 +95,8 @@ class SpecialistScreen extends StatelessWidget {
                         onTap: (){},
                         heightPersint: 0.3,
                         logo: AppImages.fingerprintLogo,
-                        text: "",
-                        hintText: "attendance-leaving",
+                        text: "attendance-leaving",
+                        hintText: "",
                         color: AppColor.cyanColor,
                       ),
                     ],
@@ -105,63 +104,12 @@ class SpecialistScreen extends StatelessWidget {
                 ],
               ),
             role == "Doctor" || role == "Nurse"   ?
-            Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColor.deepOrangeColor,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: AppColor.deepOrangeColor,
-                      ),
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Cases",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Image.asset(AppImages.casesLogo),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ) :
-            role == "Manger" ?  Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColor.deepOrangeColor,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: AppColor.deepOrangeColor,
-                  ),
-                ),
-                width: MediaQuery.of(context).size.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Employee",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Image.asset(AppImages.employeeLogo),
-                    ],
-                  ),
-                ),
-              ),
-            ) :
+            LastSpecialistButton(role: role, onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
+            }, logo: AppImages.casesLogo, hintText: "Cases" , ) :
+            role == "Manger" ?
+            LastSpecialistButton(role: role, onTap: () {}, logo: AppImages.employeeLogo, hintText: "Employee" , )
+            :
             SizedBox()
             ],
           ),
@@ -170,3 +118,4 @@ class SpecialistScreen extends StatelessWidget {
     );
   }
 }
+

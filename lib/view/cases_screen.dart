@@ -5,7 +5,7 @@ import 'package:hospital_app/view/case_details.dart';
 
 class CasesScreen extends StatelessWidget {
    CasesScreen({Key? key , required this.role}) : super(key: key);
-String role;
+   final String role;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

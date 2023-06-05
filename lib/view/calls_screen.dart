@@ -3,7 +3,7 @@ import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class CallsScreen extends StatelessWidget {
   CallsScreen({required this.role, Key? key}) : super(key: key);
-  String role;
+  final String role;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
