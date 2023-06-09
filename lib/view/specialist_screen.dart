@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
+import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/calls_screen.dart';
 import 'package:hospital_app/view/cases_screen.dart';
@@ -7,7 +8,7 @@ import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class SpecialistScreen extends StatelessWidget {
   SpecialistScreen({Key? key, required this.role}) : super(key: key);
- final String role;
+  final String role;
 
   @override
   Widget build(BuildContext context) {
@@ -40,39 +41,54 @@ class SpecialistScreen extends StatelessWidget {
                   Column(
                     children: [
                       // first
-                    role == "HR" ?
-                    SpecialistScreenButton(
-                      onTap: (){},
-                      heightPersint: 0.3,
-                      logo: AppImages.employeeLogo,
-                      text: "Employee",
-                      hintText: "You have new +1 Request",
-                      color: AppColor.deepOrangeColor,) :
-                        role == "Doctor" || role == "Nurse" || role == "Receptionist"?
-                    SpecialistScreenButton(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CallsScreen(role: role,),),);
-                      },
-                        heightPersint: 0.3,
-                        logo: AppImages.callsLogo,
-                        text: "Calls",
-                        hintText: "You have new +1 Request",
-                        color: AppColor.blueColor,
-                      ) :
-                        SpecialistScreenButton(
-                          onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
-                          },
-                          heightPersint: 0.3,
-                          logo: AppImages.casesLogo,
-                          text: "Cases",
-                          hintText: "You have new +1 Request",
-                          color: AppColor.blueColor,
-                        ),
+                      role == SpecialistVar.HR
+                          ? SpecialistScreenButton(
+                              onTap: () {},
+                              heightPersint: 0.3,
+                              logo: AppImages.employeeLogo,
+                              text: "Employee",
+                              hintText: "You have new +1 Request",
+                              color: AppColor.deepOrangeColor,
+                            )
+                          : role == SpecialistVar.Doctor ||
+                                  role == SpecialistVar.Nurse ||
+                                  role == SpecialistVar.Receptionist
+                              ? SpecialistScreenButton(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => CallsScreen(
+                                          role: role,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  heightPersint: 0.3,
+                                  logo: AppImages.callsLogo,
+                                  text: "Calls",
+                                  hintText: "You have new +1 Request",
+                                  color: AppColor.blueColor,
+                                )
+                              : SpecialistScreenButton(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => CasesScreen(
+                                          role: role,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  heightPersint: 0.3,
+                                  logo: AppImages.casesLogo,
+                                  text: "Cases",
+                                  hintText: "You have new +1 Request",
+                                  color: AppColor.blueColor,
+                                ),
 
                       // second
                       SpecialistScreenButton(
-                        onTap: (){},
+                        onTap: () {},
                         heightPersint: 0.2,
                         logo: AppImages.reportsLogo,
                         text: "Reports",
@@ -84,7 +100,7 @@ class SpecialistScreen extends StatelessWidget {
                   Column(
                     children: [
                       SpecialistScreenButton(
-                        onTap: (){},
+                        onTap: () {},
                         logo: AppImages.tasksLogo,
                         text: "Tasks",
                         hintText: "You have new +1 Task",
@@ -92,7 +108,7 @@ class SpecialistScreen extends StatelessWidget {
                         heightPersint: 0.2,
                       ),
                       SpecialistScreenButton(
-                        onTap: (){},
+                        onTap: () {},
                         heightPersint: 0.3,
                         logo: AppImages.fingerprintLogo,
                         text: "attendance-leaving",
@@ -103,14 +119,29 @@ class SpecialistScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            role == "Doctor" || role == "Nurse"   ?
-            LastSpecialistButton(role: role, onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CasesScreen(role: role,),),);
-            }, logo: AppImages.casesLogo, hintText: "Cases" , ) :
-            role == "Manger" ?
-            LastSpecialistButton(role: role, onTap: () {}, logo: AppImages.employeeLogo, hintText: "Employee" , )
-            :
-            SizedBox()
+              role == SpecialistVar.Doctor || role == SpecialistVar.Nurse
+                  ? LastSpecialistButton(
+                      role: role,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => CasesScreen(
+                              role: role,
+                            ),
+                          ),
+                        );
+                      },
+                      logo: AppImages.casesLogo,
+                      hintText: "Cases",
+                    )
+                  : role == SpecialistVar.Manger
+                      ? LastSpecialistButton(
+                          role: role,
+                          onTap: () {},
+                          logo: AppImages.employeeLogo,
+                          hintText: "Employee",
+                        )
+                      : SizedBox()
             ],
           ),
         ),
@@ -118,4 +149,3 @@ class SpecialistScreen extends StatelessWidget {
     );
   }
 }
-

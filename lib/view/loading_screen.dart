@@ -22,11 +22,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Future.delayed(Duration(milliseconds: 200), () {
       if (num > 1) return;
       setState(() {
-         num += 0.1;
+        num += 0.1;
       });
       _addValue();
     });
-
   }
 
   @override

@@ -4,8 +4,8 @@ import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/case_details.dart';
 
 class CasesScreen extends StatelessWidget {
-   CasesScreen({Key? key , required this.role}) : super(key: key);
-   final String role;
+  CasesScreen({Key? key, required this.role}) : super(key: key);
+  final String role;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class CasesScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black87),
         ),
       ),
-      body: ListView.builder(itemBuilder: (context , int i){
+      body: ListView.builder(itemBuilder: (context, int i) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -59,16 +59,24 @@ class CasesScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-               Container(
-                 width: 200,
-                 child: ElevatedButton(
-                   style: ButtonStyle(
-                     backgroundColor: MaterialStateProperty.all(AppColor.lightGreenColor)
-                   ),
-                   onPressed: (){
-                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => CaseDetailsScreen(role: role,),),);
-                 }, child: Text("Show Details") ,),
-               )
+                Container(
+                  width: 200,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            AppColor.lightGreenColor)),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CaseDetailsScreen(
+                            role: role,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text("Show Details"),
+                  ),
+                )
               ],
             ),
           ),

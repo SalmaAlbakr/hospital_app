@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class CallsScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class CallsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            role == "Receptionist"
+            role == SpecialistVar.Receptionist
                 ? Row(
                     children: [
                       Expanded(
@@ -28,14 +29,17 @@ class CallsScreen extends StatelessWidget {
                           decoration: InputDecoration(
                             suffixIcon: ElevatedButton(
                               style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.grey[700]),),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.grey[700]),
+                              ),
                               onPressed: () {},
                               child: Icon(Icons.calendar_month_outlined),
                             ),
                             border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5),),),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(5),
+                              ),
+                            ),
                           ),
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/controller/loading_function.dart';
 import 'package:hospital_app/theme/main_color.dart';
+import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
 import 'package:hospital_app/view/login_screen.dart';
 
@@ -118,7 +119,7 @@ class CallsWidget extends StatelessWidget {
                     "Patient Name",
                   ),
                   Expanded(child: SizedBox()),
-                  role == "Receptionist"
+                  role == SpecialistVar.Receptionist
                       ? caseDone
                           ? Icon(
                               Icons.check_circle,
@@ -129,7 +130,7 @@ class CallsWidget extends StatelessWidget {
                 ],
               ),
             ),
-            role == "Nurse"
+            role == SpecialistVar.Nurse
                 ? Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -158,7 +159,7 @@ class CallsWidget extends StatelessWidget {
                 ],
               ),
             ),
-            role == "Receptionist"
+            role == SpecialistVar.Receptionist
                 ? SizedBox()
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -7,8 +7,8 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key, required this.role}) : super(key: key);
   final String role;
 
- final TextEditingController phoneController = TextEditingController();
- final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,6 @@ class LoginScreen extends StatelessWidget {
         Center(
           child: SingleChildScrollView(
             child: Column(
-
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(AppImages.logo),
@@ -43,11 +42,8 @@ class LoginScreen extends StatelessWidget {
                           color: AppColor.mainColor,
                         ),
                       ),
-
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15))
-                      ),
-
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
                       hintText: "Phone Number",
                       prefixIcon: Icon(
                         Icons.local_phone_outlined,
@@ -66,19 +62,19 @@ class LoginScreen extends StatelessWidget {
                           color: AppColor.mainColor,
                         ),
                       ),
-
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))
-                      ),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
                       hintText: "Password",
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         color: AppColor.mainColor,
                       ),
                       suffixIcon: IconButton(
-
-
-                        color: AppColor.mainColor, onPressed: () {}, icon: Icon(Icons.remove_red_eye_outlined,),
+                        color: AppColor.mainColor,
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.remove_red_eye_outlined,
+                        ),
                       ),
                     ),
                   ),
@@ -90,8 +86,11 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {},
                       child: Text(
                         "Forget Password ?",
-                        style: TextStyle(fontSize: 12, color: Colors.black ,
-                          decoration: TextDecoration.underline,),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ],
@@ -102,11 +101,16 @@ class LoginScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SpecialistScreen(role :role),),);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => SpecialistScreen(role: role),
+                          ),
+                        );
                       },
                       child: Text("Login"),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(AppColor.mainColor),
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColor.mainColor),
                       ),
                     ),
                   ),
