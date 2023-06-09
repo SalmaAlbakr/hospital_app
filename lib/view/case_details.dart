@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
+import 'package:hospital_app/view/select_doctor_nurse.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 
 class CaseDetailsScreen extends StatelessWidget {
@@ -140,7 +141,9 @@ class CaseDetailsScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SelectedScreen(role: role,),),);
+                          },
                           child: Row(
                             children: [
                               Icon(Icons.add),
