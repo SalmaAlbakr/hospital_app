@@ -275,3 +275,21 @@ class LastSpecialistButton extends StatelessWidget {
     );
   }
 }
+
+class ProfileLine extends StatelessWidget {
+   ProfileLine({
+     required this.icon,
+     required this.text,
+     Key? key}) : super(key: key);
+     final Widget icon;
+     final String text;
+     @override
+      Widget build(BuildContext context) {
+      return Row(
+      children: [icon,
+      SizedBox(width: 20,),
+        Text(text),
+      ],
+    );
+  }
+}
