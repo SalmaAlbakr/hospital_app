@@ -27,17 +27,25 @@ class _TouchIDScreenState extends State<TouchIDScreen> {
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Expanded(child: SizedBox()),
                     Image.asset(AppImages.done),
                     Text(
                       "Your attendance has been registered",
                       style: TextStyle(color: Colors.white),
                     ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(AppImages.back),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Image.asset(AppImages.back),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
