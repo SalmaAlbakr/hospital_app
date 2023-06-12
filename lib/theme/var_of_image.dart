@@ -21,5 +21,7 @@ class AppImages{
  static String specialLogo = "assets/image/Group 4671.png";
  static String genderLogo = "assets/image/Group 4672.png";
  static String careLogo = "assets/image/Group 4710.png";
+ static String requestMedicalRecord = "assets/image/Group,,4566.png";
+ static String requestMedicalMeasurement = "assets/image/fi-rr-dashboard.png";
 
 }

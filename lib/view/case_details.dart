@@ -165,7 +165,14 @@ class CaseDetailsScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showModalBottomSheet(
+                              shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(15),),
+
+                                context: context, builder: (context){
+                              return RequestBottomSheet();
+                            });
+                          },
                           child: Row(
                             children: [
                               Icon(Icons.add),
@@ -230,6 +237,55 @@ class CaseDetailsScreen extends StatelessWidget {
             SizedBox()
           ],
         ),
+      ),
+    );
+  }
+}
+
+class RequestBottomSheet extends StatelessWidget {
+  const RequestBottomSheet({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 250,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(AppImages.requestMedicalRecord),
+                Container(
+                  height: 100,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey
+                    )
+                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Image.asset(AppImages.requestMedicalMeasurement),
+                    Text("Medical measurement")
+                  ],
+                ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(onPressed: (){}, child: Text("Request"))),
+          ),
+        ],
       ),
     );
   }
