@@ -69,7 +69,10 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
                     ),
                   ),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
                   hintText: "First Name",
                   prefixIcon: Icon(
                     Icons.person_outline_outlined,
@@ -89,7 +92,10 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
                     ),
                   ),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
                   hintText: "Last Name",
                   prefixIcon: Icon(
                     Icons.person_outline_outlined,
@@ -119,7 +125,9 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
                       Expanded(
                         child: DropdownButton<String>(
                           underline: Container(),
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          ),
                           value: selectedGender,
                           onChanged: (String? newValue) {
                             setState(() {
@@ -186,9 +194,16 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
               padding: const EdgeInsets.all(8.0),
               child: DateTimePicker(
                 decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.calendar_month_outlined,
+                    color: AppColor.mainColor,
+                  ),
                   labelText: "Date of birth",
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
                 ),
                 calendarTitle: "Date",
                 style: const TextStyle(
@@ -200,26 +215,6 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
                 controller: DateOfBirthController,
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: TextFormField(
-            //     controller: DateOfBirthController,
-            //     decoration: InputDecoration(
-            //       focusedBorder: OutlineInputBorder(
-            //         borderSide: BorderSide(
-            //           color: AppColor.mainColor,
-            //         ),
-            //       ),
-            //       border: OutlineInputBorder(
-            //           borderRadius: BorderRadius.all(Radius.circular(15))),
-            //       hintText: "Date of birth",
-            //       prefixIcon: Icon(
-            //         Icons.calendar_month_outlined,
-            //         color: AppColor.mainColor,
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
