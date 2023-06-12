@@ -38,6 +38,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImages.backGround),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(

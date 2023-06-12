@@ -13,9 +13,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
-      body: Stack(children: [
-        Image.asset(AppImages.backGround),
-        Center(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImages.backGround),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child:  Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                       child: Text("Login"),
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(AppColor.mainColor),
+                        MaterialStateProperty.all(AppColor.mainColor),
                       ),
                     ),
                   ),
@@ -119,7 +124,7 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ),
-      ]),
+      )
     );
   }
 }

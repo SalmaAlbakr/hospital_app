@@ -209,17 +209,20 @@ class CallsWidget extends StatelessWidget {
   }
 }
 
-Padding Details({required String MainText, required String Details}) {
+Padding Details({required String MainText, required String Details , required Widget Icon1}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           MainText,
           style: TextStyle(color: Colors.grey),
         ),
+        Expanded(child: SizedBox()),
         Text(Details),
+        Icon1
+
       ],
     ),
   );

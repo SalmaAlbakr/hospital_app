@@ -9,6 +9,7 @@ class CaseDetailsScreen extends StatelessWidget {
   CaseDetailsScreen({Key? key, required this.role}) : super(key: key);
 
   final String role;
+  final bool isFinish = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,8 @@ class CaseDetailsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+           role == SpecialistVar.Receptionist ? SizedBox():
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -109,13 +112,20 @@ class CaseDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Details(MainText: "Patient Name", Details: "Ebrahem Khaled"),
-                  Details(MainText: "Age", Details: "24 years"),
-                  Details(MainText: "Phone Number", Details: "011785558945"),
-                  Details(MainText: "Date", Details: "24 . 4 . 2021"),
-                  Details(MainText: "Doctor", Details: "Salma Ahmed"),
-                  Details(MainText: "Nurse", Details: "Ali islam"),
-                  Details(MainText: "Status", Details: "Process"),
+                  Details(MainText: "Patient Name", Details: "Ebrahem Khaled", Icon1: SizedBox()),
+                  Details(MainText: "Age", Details: "24 years" , Icon1: SizedBox()),
+                  Details(MainText: "Phone Number", Details: "011785558945" , Icon1: SizedBox()),
+                  Details(MainText: "Date", Details: "24 . 4 . 2021" , Icon1: SizedBox()),
+                  Details(MainText: "Doctor", Details: "Salma Ahmed" , Icon1: SizedBox()),
+                  Details(MainText: "Nurse", Details: "Ali islam" ,  Icon1: SizedBox()),
+                  Details(MainText: "Status", Details:
+                  isFinish == false  ?
+                  "Process" : "Finish",
+                      Icon1:
+                  isFinish == false && role == SpecialistVar.Receptionist || role == SpecialistVar.Nurse?
+                     Image.asset(AppImages.progressLogo) :
+                  isFinish == true && role == SpecialistVar.Receptionist || role == SpecialistVar.Nurse?
+                 Icon(Icons.check_circle , color: AppColor.lightGreenColor,) : SizedBox()),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -188,7 +198,36 @@ class CaseDetailsScreen extends StatelessWidget {
                           child: Text("Call Doctor"),
                         ),
                       )
-                    : SizedBox()
+                    :
+            role == SpecialistVar.Receptionist && isFinish == false ?
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(AppColor.redColor)
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Logout"),
+                    Icon(Icons.logout_sharp)
+                  ],
+                ),
+              ),
+            ) :
+            role == SpecialistVar.Receptionist && isFinish == true ?
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(AppColor.grayColor)
+                ),
+                onPressed: () {},
+                child: Text("case has been logged out"),
+              ),
+            ) :
+            SizedBox()
           ],
         ),
       ),

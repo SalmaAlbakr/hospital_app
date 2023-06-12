@@ -14,5 +14,9 @@ class AppImages{
  static String employeeLogo = "assets/image/Group 349.png";
  static String progressLogo = "assets/image/progrees.png";
  static String medicalLogo = "assets/image/fi-rr-treatment.png";
+ static String packGroundIDLogo = "assets/image/Touch ID Sensor – 1.png";
+ static String finger = "assets/image/attFinger.png";
+ static String done = "assets/image/Capture.PNG";
+ static String back = "assets/image/Capturedone.PNG";
 
 }
