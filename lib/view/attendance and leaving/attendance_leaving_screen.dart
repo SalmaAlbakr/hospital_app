@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
+import 'package:hospital_app/view/attendance%20and%20leaving/touch_id_screen.dart';
 
 class AttendanceScreen extends StatelessWidget {
    AttendanceScreen({Key? key, required this.role}) : super(key: key);
@@ -51,7 +52,9 @@ class AttendanceScreen extends StatelessWidget {
                           SizedBox(height: 7,),
                           Text("09 : 00 am" , style: TextStyle(color: AppColor.mainColor),),
                           SizedBox(height: 7,),
-                          ElevatedButton(onPressed: (){}, child: Icon(Icons.arrow_right_alt_outlined),),
+                          ElevatedButton(onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => TouchIDScreen(),),);
+                          }, child: Icon(Icons.arrow_right_alt_outlined),),
                         ],
                       ),
                       Icon(Icons.check_circle, color: AppColor.lightGreenColor,),
@@ -83,7 +86,9 @@ class AttendanceScreen extends StatelessWidget {
                           SizedBox(height: 7,),
                           Text("04 : 00 pm" , style: TextStyle(color: AppColor.mainColor),),
                           SizedBox(height: 7,),
-                          ElevatedButton(onPressed: (){}, child: Icon(Icons.arrow_right_alt_outlined),),
+                          ElevatedButton(onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => TouchIDScreen(),),);
+                          }, child: Icon(Icons.arrow_right_alt_outlined),),
                         ],
                       ),
                       Icon(Icons.cancel , color: AppColor.orange,),

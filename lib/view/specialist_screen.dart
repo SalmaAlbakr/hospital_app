@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/theme/var_of_image.dart';
+import 'package:hospital_app/view/attendance%20and%20leaving/attendance_leaving_screen.dart';
 import 'package:hospital_app/view/calls_screen.dart';
 import 'package:hospital_app/view/cases_screen.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
@@ -108,7 +109,9 @@ class SpecialistScreen extends StatelessWidget {
                         heightPersint: 0.2,
                       ),
                       SpecialistScreenButton(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => AttendanceScreen(role: role,)));
+                        },
                         heightPersint: 0.3,
                         logo: AppImages.fingerprintLogo,
                         text: "attendance-leaving",
