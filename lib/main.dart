@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
-import 'package:hospital_app/theme/specialist-var.dart';
-import 'package:hospital_app/view/case_details.dart';
 import 'package:hospital_app/view/start_up_screen.dart';
 
 void main() {
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:CaseDetailsScreen(role: SpecialistVar.Doctor,),
+      home:  StartUpScreen(),
     );
   }
 }
