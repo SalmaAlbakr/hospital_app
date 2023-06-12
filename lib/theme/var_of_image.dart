@@ -18,5 +18,8 @@ class AppImages{
  static String finger = "assets/image/attFinger.png";
  static String done = "assets/image/Capture.PNG";
  static String back = "assets/image/Capturedone.PNG";
+ static String specialLogo = "assets/image/Group 4671.png";
+ static String genderLogo = "assets/image/Group 4672.png";
+ static String careLogo = "assets/image/Group 4710.png";
 
 }
