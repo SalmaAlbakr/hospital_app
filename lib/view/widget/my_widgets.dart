@@ -297,3 +297,45 @@ class ProfileLine extends StatelessWidget {
       );
   }
 }
+ class TaskWindow extends StatelessWidget {
+    TaskWindow({
+     required this.text,
+     required this.icon,
+     required this.container,
+
+      Key? key}) : super(key: key);
+    final Widget icon;
+    final String text;
+    final Widget container ;
+
+
+   @override
+   Widget build(BuildContext context) {
+     return  Padding(
+       padding: const EdgeInsets.all(8.0),
+       child: Container(
+         color: Colors.white,
+         width: 90,
+         height: 50,
+         child: Column(
+           children: [
+             Row(
+               children: [
+                 icon,
+                 SizedBox(width: 20,),
+                 Text(text),
+                 Container(
+                     height: 20,
+                     width: 20,
+                     child: container)
+               ],
+             ),
+             Row(children: [icon,
+               SizedBox(width: 20,),
+               Text(text),],)
+           ],
+         ),
+       ),
+     );
+   }
+ }
