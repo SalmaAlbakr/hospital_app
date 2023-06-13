@@ -20,33 +20,83 @@ class CreateScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child:ListView(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Patient Name",
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide()
-                  )
+          child:Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Patient Name",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15))
+                            )
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "age",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15))
+                            )
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "phone Number",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15))
+                            )
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Select Doctor",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15))
+                            )
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Case Description",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15))
+                            )
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "age",
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide()
-                  )
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Send Call"),
+                    ),
+                  ),
                 ),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "phone Number",
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide()
-                  )
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

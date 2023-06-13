@@ -1,4 +1,4 @@
-import 'package:date_time_picker/date_time_picker.dart';
+//import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/specialist-var.dart';
@@ -190,31 +190,31 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: DateTimePicker(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.calendar_month_outlined,
-                    color: AppColor.mainColor,
-                  ),
-                  labelText: "Date of birth",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                ),
-                calendarTitle: "Date",
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-                firstDate: DateTime.now(),
-                lastDate: DateTime(2095),
-                controller: DateOfBirthController,
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: DateTimePicker(
+            //     decoration: InputDecoration(
+            //       prefixIcon: Icon(
+            //         Icons.calendar_month_outlined,
+            //         color: AppColor.mainColor,
+            //       ),
+            //       labelText: "Date of birth",
+            //       border: OutlineInputBorder(
+            //         borderRadius: BorderRadius.all(
+            //           Radius.circular(15),
+            //         ),
+            //       ),
+            //     ),
+            //     calendarTitle: "Date",
+            //     style: const TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 15,
+            //     ),
+            //     firstDate: DateTime.now(),
+            //     lastDate: DateTime(2095),
+            //     controller: DateOfBirthController,
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

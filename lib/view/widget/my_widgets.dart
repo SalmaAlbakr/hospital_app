@@ -285,11 +285,15 @@ class ProfileLine extends StatelessWidget {
      final String text;
      @override
       Widget build(BuildContext context) {
-      return Row(
-      children: [icon,
-      SizedBox(width: 20,),
-        Text(text),
-      ],
-    );
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+        children: [
+          icon,
+        SizedBox(width: 20,),
+          Text(text),
+        ],
+    ),
+      );
   }
 }

@@ -25,14 +25,15 @@ class MyProfileScreen extends StatelessWidget {
               SizedBox(height: 20,),
               CircleAvatar(
                 radius: 50,
-                child: Image.asset("assets/image/Mask Group 2.png"),
+                child: Image.asset("assets/image/name.png"),
               ),
               SizedBox(height: 10,),
               Container(
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 270,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(15),
+
                   color: Colors.white
                 ),
                 child:
@@ -44,11 +45,18 @@ class MyProfileScreen extends StatelessWidget {
                     Text("Ebrahim Elzieny",style: TextStyle(color: AppColor.mainColor),),
                     SizedBox(height: 20,),
                     ProfileLine(icon: Icon(Icons.camera_alt), text: 'Specilist- Doctor',),
-                    ProfileLine(icon: Icon(Icons.transgender_outlined), text: '29-30-78',),
-                    ProfileLine(icon: Icon(Icons.transgender_outlined), text: 'Mansura- shebien',),
-                    ProfileLine(icon: Icon(Icons.transgender_outlined), text: 'Sigle',),
-                    ProfileLine(icon: Icon(Icons.transgender_outlined), text: 'EbrahimElzieny@gmail.com',),
-                    ProfileLine(icon: Icon(Icons.transgender_outlined), text: '0115874699',),
+
+                    ProfileLine(icon: Icon(Icons.transgender), text: 'Male',),
+
+                    ProfileLine(icon: Icon(Icons.calendar_month_outlined), text: '29-30-78',),
+
+                    ProfileLine(icon: Icon(Icons.location_on_outlined), text: 'Mansura- shebien',),
+
+                    ProfileLine(icon: Icon(Icons.favorite_border), text: 'Sigle',),
+
+                    ProfileLine(icon: Icon(Icons.inbox_outlined), text: 'EbrahimElzieny@gmail.com',),
+
+                    ProfileLine(icon: Icon(Icons.phone), text: '0115874699',),
                   ],
                 ),
               )

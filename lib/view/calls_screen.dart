@@ -12,11 +12,14 @@ class CallsScreen extends StatefulWidget {
 }
 
 class _CallsScreenState extends State<CallsScreen> {
-  DateTime? selectedDate;
+//  DateTime? selectedDate;
   void initState() {
     super.initState();
-    selectedDate = DateTime.now();
+    _selectedDay = DateTime.now();
   }
+
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,15 @@ class _CallsScreenState extends State<CallsScreen> {
                                 backgroundColor:
                                     MaterialStateProperty.all(Colors.grey[700]),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+
+                                showModalBottomSheet(
+                                    context: context,
+                                    builder: (context) {
+                                      return DateCallsWidget(context);
+                                    });
+
+                              },
                               child: Icon(Icons.calendar_month_outlined),
                             ),
                             border: OutlineInputBorder(
@@ -60,28 +71,9 @@ class _CallsScreenState extends State<CallsScreen> {
                         width: 5,
                       ),
                       ElevatedButton(
-                        onPressed: () {showModalBottomSheet(context: context, builder: (context){
-                          return SizedBox(
-                              height: 0.6,
-                              child: Column(
-                              children: <Widget>[
-                              TableCalendar(
-                              firstDay: DateTime(2000),
-                          lastDay: DateTime(2050),
-                          focusedDay: DateTime.now(),
-                          calendarFormat: CalendarFormat.month,
-                          calendarStyle: CalendarStyle(
-                          selectedDecoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          shape: BoxShape.circle,
-                          ),
-                          todayDecoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          shape: BoxShape.circle,
-                          ),
-                          ), ),];
-                        });
-                          },
+                        onPressed: () {
+
+                        },
                         child: Icon(Icons.add),
                       ),
                     ],
@@ -98,6 +90,42 @@ class _CallsScreenState extends State<CallsScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  SizedBox DateCallsWidget(BuildContext context) {
+    return SizedBox(
+      // height: 0.6,
+      child: Column(
+        children: <Widget>[
+          TableCalendar(
+            selectedDayPredicate: (day) {
+              return isSameDay(_selectedDay, day);
+            },
+            onDaySelected: (selectedDay, focusedDay) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+
+            },
+            firstDay: DateTime(2000),
+            lastDay: DateTime(2050),
+            focusedDay: DateTime.now(),
+            calendarFormat: CalendarFormat.month,
+            calendarStyle: CalendarStyle(
+              selectedDecoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                shape: BoxShape.circle,
+              ),
+              todayDecoration: BoxDecoration(
+                color: Colors.grey[300],
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

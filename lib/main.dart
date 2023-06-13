@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_app/theme/main_color.dart';
+import 'package:hospital_app/theme/specialist-var.dart';
+import 'package:hospital_app/view/attendance%20and%20leaving/touch_id_screen.dart';
+import 'package:hospital_app/view/calls_screen.dart';
+import 'package:hospital_app/view/creat_call_screen.dart';
+import 'package:hospital_app/view/profile_compeleted.dart';
+import 'package:hospital_app/view/profile_screen.dart';
 import 'package:hospital_app/view/start_up_screen.dart';
 
 void main() {
@@ -19,7 +25,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  StartUpScreen(),
+      home:  TouchIDScreen(),
     );
   }
 }
