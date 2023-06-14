@@ -307,8 +307,6 @@ class ProfileLine extends StatelessWidget {
     final Widget icon;
     final String text;
     final Widget container ;
-
-
    @override
    Widget build(BuildContext context) {
      return  Padding(

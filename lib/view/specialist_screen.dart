@@ -6,6 +6,7 @@ import 'package:hospital_app/view/attendance%20and%20leaving/attendance_leaving_
 import 'package:hospital_app/view/calls_screen.dart';
 import 'package:hospital_app/view/cases_screen.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
+import 'package:hospital_app/view/widget/notification_screen.dart';
 
 class SpecialistScreen extends StatelessWidget {
   SpecialistScreen({Key? key, required this.role}) : super(key: key);
@@ -24,7 +25,9 @@ class SpecialistScreen extends StatelessWidget {
           title: Text("The Name"),
           subtitle: Text(role),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationScreen()));
+            },
             icon: Icon(
               Icons.notifications_none_outlined,
             ),

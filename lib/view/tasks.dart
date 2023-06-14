@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hospital_app/theme/main_color.dart';
 import 'package:hospital_app/theme/specialist-var.dart';
 import 'package:hospital_app/view/widget/my_widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class TasksScreen extends StatefulWidget {
-  TasksScreen({required this.role, Key? key}) : super(key: key);
-  final String role;
+  TasksScreen({Key? key}) : super(key: key);
+  //final String role;
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -20,7 +21,7 @@ class _TasksScreenState extends State<TasksScreen> {
 
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
-
+  bool done = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +40,7 @@ class _TasksScreenState extends State<TasksScreen> {
         child: Column(
           children: [
             //widget.role == SpecialistVar.Receptionist?
-                 Row(
+            Row(
               children: [
                 Expanded(
                   child: TextFormField(
@@ -48,7 +49,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       suffixIcon: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                          MaterialStateProperty.all(Colors.grey[700]),
+                              MaterialStateProperty.all(Colors.grey[700]),
                         ),
                         onPressed: () {
                           showModalBottomSheet(
@@ -68,12 +69,56 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
               ],
-            )
-        ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, int i) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [Icon(Icons.verified_outlined),
+                          SizedBox(width: 10,),
+                            Text("Task Name"),
+                            Expanded(child: SizedBox()),
+                            done == true ?
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: AppColor.lightGreenColor,
+                              ),
 
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Finished"),
+                              ),) :
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: AppColor.orange,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("process"),
+                              ),)
+                          ],
+                        ),
+                        Row(children: [Icon(Icons.calendar_month_outlined),
+                          SizedBox(width: 10,),
+                          Text("24-10-2022"),
+                        ],)
+                      ],
+                    ),
+                  ),
+                );
+              }),
+            )
+          ],
         ),
       ),
     );
   }
-
 }
